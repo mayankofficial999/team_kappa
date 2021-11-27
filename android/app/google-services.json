@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "800070704117",
+    "project_id": "teamkappa-ca8c1",
+    "storage_bucket": "teamkappa-ca8c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800070704117:android:4337f5c15d28c1a3891ebc",
+        "android_client_info": {
+          "package_name": "com.example.team_kappa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800070704117-j43g39b4nv37dabhhiaghc5nmn9hb8aj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMmNFab1Pnsw1J-MQzrOaqMNfQpSZTLBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "800070704117-j43g39b4nv37dabhhiaghc5nmn9hb8aj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
