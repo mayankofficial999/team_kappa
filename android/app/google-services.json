@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "800070704117",
+    "firebase_url": "https://teamkappa-ca8c1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "teamkappa-ca8c1",
+    "storage_bucket": "teamkappa-ca8c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800070704117:android:4337f5c15d28c1a3891ebc",
+        "android_client_info": {
+          "package_name": "com.example.team_kappa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800070704117-h389j4adiai64rkgtglr7064cbcaepg1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.team_kappa",
+            "certificate_hash": "49ac0d7d7233437e3fbdcf9fa1f6858a739d4552"
+          }
+        },
+        {
+          "client_id": "800070704117-j43g39b4nv37dabhhiaghc5nmn9hb8aj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMmNFab1Pnsw1J-MQzrOaqMNfQpSZTLBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "800070704117-j43g39b4nv37dabhhiaghc5nmn9hb8aj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "800070704117-uku7hlho9adunap3hll1nngpg75g4hms.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teamKappa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
