@@ -1,11 +1,10 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:team_kappa/PhoneAuth.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:team_kappa/Register.dart';
-import 'package:team_kappa/main.dart';
 
 class OTPcheck extends StatefulWidget {
   @override
@@ -148,8 +147,9 @@ class _OTPcheckState extends State<OTPcheck> {
               changeProgress();
               print("Signing In");
               await PhoneAuth(myController3.text,pin,context).verifyPhone(1);
-              Timer(Duration(seconds: 2),()async{
+              Timer(Duration(seconds: 5),() async{
               changeProgress();
+              if(FirebaseAuth.instance.currentUser!.uid!=null)
               Navigator.push(context,MaterialPageRoute(builder: (context) => Register()),);
               });
               //Navigator.push(context,MaterialPageRoute(builder: (context) => Register()),);

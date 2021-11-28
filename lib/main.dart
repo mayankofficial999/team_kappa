@@ -3,7 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:team_kappa/Login.dart';
-import 'package:team_kappa/test.dart';
+import 'package:team_kappa/Receptionist.dart';
+import 'package:team_kappa/Register.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(title: Center(child:Text("MedHub",style: TextStyle(color: Colors.white,),),),),
-      body: logedIn? LoginPage():OTPcheck()
+      body: logedIn? HomePage():OTPcheck()
       )
       // Container(
       //   constraints: BoxConstraints.expand(),

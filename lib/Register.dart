@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:team_kappa/test.dart';
+import 'package:team_kappa/Receptionist.dart';
 
 
 class Register extends StatefulWidget {
@@ -16,8 +19,26 @@ class _RegisterState extends State<Register> {
   void logout() async {
     await FirebaseAuth.instance.signOut();
   }
-
+  Map data={};
   var selectedValue="Receptionist";
+  final ins=FirebaseDatabase.instance;
+  void send(Map s){
+    final refer=ins.reference();
+    var loc=
+    refer
+    .child('reception')
+    .child('${FirebaseAuth.instance.currentUser!.uid}');
+    loc.set(s);
+  }
+  void checkReg(){
+    final refer=ins.reference();
+    refer.child('reception').orderByKey().equalTo('${FirebaseAuth.instance.currentUser!.uid}').once().then(
+      (x) { 
+        print(x.exists);
+        if(x.exists)
+        Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()),);
+      });
+  }
   List<DropdownMenuItem<String>> menuItems = [
     DropdownMenuItem(child: Text("Receptionist"),value: "Receptionist"),
     DropdownMenuItem(child: Text("Junior Doctor"),value: "Junior Doctor"),
@@ -26,11 +47,12 @@ class _RegisterState extends State<Register> {
   ];
   TextEditingController _name= new TextEditingController();
   TextEditingController _age= new TextEditingController();
-  TextEditingController _addrs= new TextEditingController();
+  TextEditingController _gender= new TextEditingController();
   TextEditingController _mobno= new TextEditingController();
   @override
   Widget build(BuildContext context) {
     Firebase.initializeApp();
+    checkReg();
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -142,7 +164,7 @@ class _RegisterState extends State<Register> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(width: 10,),
-                Text("Address: ",style: TextStyle(fontSize: 16,color: Colors.black),),
+                Text("Gender: ",style: TextStyle(fontSize: 16,color: Colors.black),),
                 Container(
                 margin: EdgeInsets.only(top:0),
                 height: 60,
@@ -152,7 +174,7 @@ class _RegisterState extends State<Register> {
                     style: TextStyle(color: Colors.black,fontSize: 16),
                     keyboardType: TextInputType.number,
                     textAlign: TextAlign.center,
-                    controller: _addrs,
+                    controller: _gender,
                     //initialValue: "${widget.data['$patientNo'][1]}",
                     decoration: InputDecoration(
                     enabledBorder: const UnderlineInputBorder(borderSide: const BorderSide(color: Colors.black, width: 0.0),),
@@ -160,7 +182,7 @@ class _RegisterState extends State<Register> {
                     hintStyle: TextStyle(fontSize: 16, color: Colors.black),
                     ),
                     onChanged: (s){
-                      String address=s;
+                      String gender=s;
                     },
                   ),
                 ),
@@ -198,7 +220,13 @@ class _RegisterState extends State<Register> {
         ,SizedBox(height: 20,),
         ElevatedButton(
           onPressed: (){
-            Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()),);
+            send({
+            'name':'${_name.text}',
+            'mobile_no':'${_mobno.text}',
+            'age':'${_age.text}',
+            'gender':'${_gender.text}'
+            });
+            Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()),);
           },
           child: Text("Submit")
         )
