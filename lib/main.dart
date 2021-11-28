@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:team_kappa/Login.dart';
 import 'package:team_kappa/Receptionist.dart';
-import 'package:team_kappa/Register.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +23,8 @@ class MyApp extends StatelessWidget {
      });
     if(FirebaseAuth.instance.currentUser!=null)
     logedIn=true;
+    else
+    logedIn=false;
     print(FirebaseAuth.instance.currentUser);
     return MaterialApp(
       title: 'Flutter Demo',
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: Center(child:Text("MedHub",style: TextStyle(color: Colors.white,),),),),
+      //appBar: AppBar(title: Center(child:Text("MedHub",style: TextStyle(color: Colors.white,),),),),
       body: logedIn? HomePage():OTPcheck()
       )
       // Container(

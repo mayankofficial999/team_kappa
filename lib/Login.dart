@@ -149,7 +149,7 @@ class _OTPcheckState extends State<OTPcheck> {
               await PhoneAuth(myController3.text,pin,context).verifyPhone(1);
               Timer(Duration(seconds: 5),() async{
               changeProgress();
-              if(FirebaseAuth.instance.currentUser!.uid!=null)
+              if(FirebaseAuth.instance.currentUser!=null)
               Navigator.push(context,MaterialPageRoute(builder: (context) => Register()),);
               });
               //Navigator.push(context,MaterialPageRoute(builder: (context) => Register()),);

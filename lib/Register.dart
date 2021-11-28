@@ -53,6 +53,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     Firebase.initializeApp();
     checkReg();
+    Timer(Duration(seconds: 5), (){});
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
